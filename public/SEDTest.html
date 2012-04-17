@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>
+      AJAX on SIMBAD TAP
+    </title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      
+      $("button:#go").click(function () {
+
+        my_query = "SELECT basic.OID, RA, DEC, main_id, coo_bibcode, filter, flux FROM basic JOIN flux ON oidref = oid WHERE CONTAINS(POINT('ICRS', RA, DEC), CIRCLE('ICRS', "+ $('#ra').val() +", "+ $('#dec').val() +", 0.5)) = 1 ORDER BY main_id";
+        
+        console.log(my_query);
+        console.log(encodeURIComponent(my_query));
+        
+    	  json_url = "http://0.0.0.0:3000/simbad?query=" + encodeURIComponent(my_query);
+        // json_url = "http://0.0.0.0:3000/simbad";                                               
+    	  console.log(json_url);
+    	  
+    	  var fluxes = {};
+    	  
+    	  $.ajax({
+    	    dataType: 'jsonp',
+          url: json_url,
+          callback: 'blah',
+          success: function(data) {
+            $.each(data, function() {
+              $.each(this, function(k, v) {
+                id = v[3];
+                filter = v[5];
+                value = v[6];
+                if (!fluxes[id]) {
+                  fluxes[id] = {}
+                };
+                fluxes[id][filter] = value;
+              });
+            });
+            console.log(fluxes);
+          }
+        });
+        
+      });
+      
+    });
+    </script>
+  </head>
+  <body>
+    <div style="padding:16px;">
+    	
+    	<input type="textbox" value="18.39509" size="10" id="ra"></input>
+    	<input type="textbox" value="-13.25730" size="10" id="dec"></input>
+    	<button id="go">Go!</button>  
+    </div>
+    <ul id="results"></ul>
+  </body>
+</html>
