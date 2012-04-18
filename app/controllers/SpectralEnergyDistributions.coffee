@@ -5,7 +5,7 @@ class SpectralEnergyDistributions extends Spine.Controller
     super
 
   render: =>
-    @append require('views/SpectralEnergyDistribution')(@item)
+    @append require('views/sed')(@item)
     @
 
   drawPlot: ->

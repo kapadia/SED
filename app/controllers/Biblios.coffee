@@ -5,7 +5,7 @@ class Biblios extends Spine.Controller
     super
 
   render: =>
-    @append require('views/Biblio')(@item)
+    @append require('views/biblio')(@item)
     @
 
   drawBiblio: ->

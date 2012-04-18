@@ -1,0 +1,13 @@
+<h1>Spectral Energy Distribution</h1>
+<div id="coordinate-form">
+  <form name="coordinates" action="">
+    <fieldset>
+      <label for="ra">Right Ascension:</label>
+      <input type="text" name="ra" id="ra-input" size="30" value=""  />
+      <label for="dec">Declination:</label>
+      <input type="text" name="dec" id="dec-input" size="30" value=""  />
+      <input type="submit" name="submit" class="button" id="submit" value="Do Magic!" />  
+    </fieldset>
+  </form>
+</div>
+<div id="results"></div>

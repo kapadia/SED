@@ -1,0 +1,1 @@
+<h1>Examining <%= @objid %></h1>
