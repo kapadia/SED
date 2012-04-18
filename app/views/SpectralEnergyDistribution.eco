@@ -1,0 +1,2 @@
+<h4><%= @objid %></h4>
+<div id='sed_<%= @id %>' class='sed' style='width:300px;height:120px' data-cid=<%= @cid %>></div>

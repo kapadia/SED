@@ -1,0 +1,1 @@
+<div id='biblio_<%= @id %>' class='biblio'></div>

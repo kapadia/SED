@@ -1,0 +1,12 @@
+#results {
+  width: 100%;
+  margin: 0 auto;
+}
+#biblios {
+  width: 50%;
+  float: left;
+}
+#seds {
+  width: 50%;
+  float: left;
+}
