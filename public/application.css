@@ -1,12 +1,21 @@
+body {
+  width: 100%;
+}
 #results {
   width: 100%;
   margin: 0 auto;
 }
-#biblios {
+.biblio {
   width: 50%;
-  float: left;
 }
-#seds {
+.sed {
   width: 50%;
-  float: left;
+}
+.result {
+  width: 600px;
+  border: 1px solid #505050;
+  margin: 20px 0 20px 0;
+}
+.result:hover {
+  background-color: rgba(0,0,255,0.10);
 }
