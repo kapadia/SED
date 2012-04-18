@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset=utf-8>
-  <title>App</title>
+  <title>Wicked Cool Spectral Energy Distribution</title>
   <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
   <script src="/application.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
@@ -10,12 +10,23 @@
     var exports = this;
     jQuery(function(){
       var App = require("index");
-      exports.app = new App({el: $("body")});      
+      exports.app = new App({el: $("body")});
     });
   </script>
-  
-  <!-- Getting started script - should be removed -->
-  <script src="http://maccman-spine.herokuapp.com/start.js" type="text/javascript" charset="utf-8"></script>
 </head>
-<body></body>
+<body>
+  <h1>Spectral Energy Distribution</h1>
+  <div id="coordinate-form">
+    <form name="coordinates" action="">
+      <fieldset>
+        <label for="ra">Right Ascension:</label>
+        <input type="text" name="ra" id="ra-input" size="30" value=""  />
+        <label for="dec">Declination:</label>
+        <input type="text" name="dec" id="dec-input" size="30" value=""  />
+        <input type="submit" name="submit" class="button" id="submit" value="Do Magic!" />  
+      </fieldset>
+    </form>
+  </div>
+  <div id="plots"></div>
+</body>
 </html>
