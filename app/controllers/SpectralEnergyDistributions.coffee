@@ -3,24 +3,23 @@ Spine = require('spine')
 class SpectralEnergyDistributions extends Spine.Controller
   constructor: ->
     super
+    @item.generateData()
 
   render: =>
     @append require('views/sed')(@item)
+    @plot()
     @
 
-  drawPlot: ->
+  plot: =>
     xmin = Math.log(360)
     xmax = Math.log(4800)
-
-    options =
+    
+    options = 
       points:
         show: true
-      xaxis:
-        min: xmin
-        max: xmax
-        # transform: (v) -> 
-        #   console.log Math.log(v)
-        #   return Math.log(v)
-    $.plot($("#sed_#{@item.id}"), [@item.fluxes], options)
+      # xaxis:
+        # min: xmin
+        # max: xmax
+    $.plot($("##{@item.cid}"), [@item.data], options)
 
 module.exports = SpectralEnergyDistributions

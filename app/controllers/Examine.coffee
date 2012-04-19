@@ -1,5 +1,5 @@
 Spine = require('spine')
-Sed   = require('models/SpectralEnergyDistribution')
+SED   = require('models/SpectralEnergyDistribution')
 
 class Examine extends Spine.Controller
   elements:
@@ -11,13 +11,13 @@ class Examine extends Spine.Controller
       @change(params.id)
 
   change: (id) ->
-    @item = Sed.find(id)
-    $("#results").remove()
+    @item = SED.find(id)
+    console.log @item
     @render()
+    @examine()
 
   render: =>
     @html require('views/examine')(@item)
-    @examine()
     @
 
   examine: ->
@@ -31,10 +31,7 @@ class Examine extends Spine.Controller
     options =
       points:
         show: true
-      xaxis:
-        min: xmin
-        max: xmax
-    $.plot(@sed, [@item.fluxes], options)
+    $.plot(@sed, [@item.data], options)
 
   sky: ->
     @chromoscope = $.chromoscope({container: '#sky', lang:'es', showintro: false, compact: true})

@@ -2,24 +2,26 @@ require('lib/setup')
 
 Spine   = require('spine')
 Main    = require('controllers/Main')
-Seds    = require('controllers/SpectralEnergyDistributions')
+Results = require('controllers/Results')
 Examine = require('controllers/Examine')
 
 class App extends Spine.Stack
-  className: 'seds stack'
+  className: "Zooniverse Spectral Energy Distribution"
 
   controllers:
     main    : Main
-    seds    : Seds
+    results : Results
     examine : Examine
 
   routes:
-    '/'         : 'main'
-    '/seds/:id' : 'examine'
+    '/'                         : 'main'
+    '/results/:ra/:dec/:radius' : 'results'
+    '/results/:id'              : 'examine'
 
   default: 'main'
 
   constructor: ->
     super
+    Spine.Route.setup()
 
 module.exports = App

@@ -1,2 +1,8 @@
-<h4><%= @objid %></h4>
-<div id='sed_<%= @id %>' class='sed' style='width:300px;height:120px' data-cid=<%= @cid %>></div>
+<div class='sed'>
+<h3><%= @objid %></h3>
+<h4><%= @ra %></h4>
+<h4><%= @dec %></h4>
+<h4><%= @bibcode %></h4>
+<div id='<%= @cid %>' class='plot' style='width:300px;height:120px'></div>
+</div>
+
