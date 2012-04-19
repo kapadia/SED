@@ -13,13 +13,9 @@ class SpectralEnergyDistributions extends Spine.Controller
   plot: =>
     xmin = Math.log(360)
     xmax = Math.log(4800)
-    
     options = 
       points:
         show: true
-      # xaxis:
-        # min: xmin
-        # max: xmax
     $.plot($("##{@item.cid}"), [@item.data], options)
 
 module.exports = SpectralEnergyDistributions

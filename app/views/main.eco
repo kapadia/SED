@@ -1,17 +1,10 @@
 <div id="main">
-  <h1>Spectral Energy Distribution</h1>
-
   <div id="coordinate-form">
     <form name="query" action="">
-      <fieldset>
-        <label for="ra">Right Ascension:</label>
-        <input type="text" name="ra" id="ra-input" size="30" value=""  />
-        <label for="dec">Declination:</label>
-        <input type="text" name="dec" id="dec-input" size="30" value=""  />
-        <label for="radius">Radius:</label>
-        <input type="text" name="radius" id="radius-input" size="30" value=""  />
-        <input type="submit" name="submit" class="button" id="submit" value="Do Magic!" />
-      </fieldset>
+      <input type="text" name="ra" id="ra-input" size="30" value="Type Right Ascension Here ..." />
+      <input type="text" name="dec" id="dec-input" size="30" value="Type Declination Here ..." />
+      <input type="text" name="radius" id="radius-input" size="30" value="Type Radius Here ..." />
+      <input type="submit" name="submit" class="button" id="submit" value="Do Magic!" />
     </form>
   </div>
 </div>

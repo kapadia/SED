@@ -1,7 +1,4 @@
 <div id="examining">
   <h3>Examining <%= @objid %></h3>
-  <div id="sky" style="border:0px solid yellow;width:300px;height:200px;"></div>
   <div id="sed-plot" style='width:600px;height:300px'></div>
-  <div id="query"></div>
-  <div id="metadata"></div>
 <div id="examining">

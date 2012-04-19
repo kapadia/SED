@@ -8,9 +8,9 @@ class Results extends Spine.Controller
   
   constructor: ->
     super
-
     SED.bind "create", @addSedController
 
+    @append require('views/results')()
     @active (params) ->
       @change()
       @getData params.ra, params.dec, params.radius
@@ -23,16 +23,19 @@ class Results extends Spine.Controller
     @
 
   getData: (ra, dec, radius) ->
-    $.ajax({
-      dataType: 'jsonp',
-      url: @generateURL(ra, dec, radius),
-      callback: 'givemeseds',
-      success: (data) =>
-        @noResults() if data.length is 0
-        @initializeSedModel(sed) for sed in data
-      error: (e) ->
-        console.log 'error', e
-    })
+    if SED.count() > 0
+      @addSedController(sed) for sed in SED.all()
+    else    
+      $.ajax({
+        dataType: 'jsonp',
+        url: @generateURL(ra, dec, radius),
+        callback: 'givemeseds',
+        success: (data) =>
+          @initializeSedModel(sed) for sed in data
+          
+        error: (e) ->
+          console.log 'error', e
+      })
 
   generateURL: (ra, dec, radius = 30) ->
     return "http://www.milkywayproject.org/gator.json?radius=#{radius}&ra=#{ra}&dec=#{dec}"

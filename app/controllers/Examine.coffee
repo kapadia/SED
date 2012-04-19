@@ -12,7 +12,6 @@ class Examine extends Spine.Controller
 
   change: (id) ->
     @item = SED.find(id)
-    console.log @item
     @render()
     @examine()
 

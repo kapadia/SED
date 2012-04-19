@@ -10,21 +10,23 @@
     var exports = this;
     jQuery(function(){
       var App = require("index");
-      exports.app = new App({el: $("body")});
+      exports.app = new App({el: $("#app")});
     });
   </script>
-  <!-- For Chromoscope -->
-  <script src="chromoscope/jquery.mousewheel.min.js"></script>
-  <script src="chromoscope/chromoscope.js"></script>
-  <script src="chromoscope/chromoscope-lookup.js"></script>
-  <script src="chromoscope/chromoscope-kml.js"></script>
-  <script src="chromoscope/chromoscope-contextmenu.js"></script>
-  <script src="chromoscope/ui/jquery.ui.core.min.js"></script>
-  <script src="chromoscope/ui/jquery.ui.widget.min.js"></script>
-  <script src="chromoscope/ui/jquery.ui.mouse.min.js"></script>
-  <script src="chromoscope/ui/jquery.ui.sortable.min.js"></script>
   <script src="flot/jquery.flot.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
+  <div id="header">
+    <div id="header-title">
+      <h1>ZooTools <span class='alpha'>(alpha)</span></h1>
+    </div>
+    <div id="header-tutorial">
+      <h4>Tutorial</h4>
+    </div>
+    <div id='tool-title'>
+      <h1>Spectral Energy Distribution</h1>
+    </div>
+  </div>
+  <div id="app"></div>
 </body>
 </html>

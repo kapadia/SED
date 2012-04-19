@@ -1,22 +1,118 @@
 @import './mixin'
 
+orange = #C34E00
+gray = #EBEBEB
+gray2 = #505050
+gray3 = #C0C0C0
+white = #FFFFFF
 
 body
   width 100%
+  background gray
+  color orange
+  font-family Verdana, Arial, sans-serif
+  font-weight lighter
+  margin 0px 0px
+  padding 0px
+  text-align center
+
+#header
+  border-top 3px solid orange
+  border-bottom 2px solid gray3
+  margin 0 auto
+  padding-left 200px
+
+#header-title
+  h1
+    color orange
+    font-size 34px
+    font-weight lighter
+    line-height 50px
+    text-transform lowercase
+    margin 0px
+    
+    float left
+    .alpha
+      font-size 10px
+
+#header-tutorial
+  h4
+    color gray2
+    font-size 14px
+    font-weight lighter
+    line-height 50px
+    text-transform lowercase
+    margin 0px
+    margin-top 8px
+    float right
+    cursor pointer
+    &:hover
+      color: orange
+
+#tool-title
+  clear both
+
+  h1
+    font-size 25px
+    font-family TitilliumText22LMedium, sans-serif
+    font-weight normal
+    text-align left
+    display block
+
+
+.active
+  margin 0 auto
+  width 940px
+
+#main
+  input[type="text"]
+    height 45px
+    width 240px
+    background-color white
+    border 1px solid gray3
+    box-shadow 0px 1px 0px white
+
+  input[type="submit"]
+    -webkit-gradient(linear, 0% 0%, 0% 100%, from(#DA5700), to(#C34E00))
+    background-color #DA5700
+    font-family TitilliumText22LBold
+    font-size 20px
+    font-family sans-serif
+    color white
+    height 45px
+    border 1px solid #993D00
+    box-shadow 0px 1px 0px white
+    cursor pointer
+    &:hover
+      background-color orange
+  
+  form
+    margin-top 20px
 
 #results
   width 100%
   margin 0 auto
 
-.biblio
-  width 50%
+  .row
+    float left
+    width 960px
 
-.sed
-  width 50%
+  .sed
+    width 300px
+    text-align left
+    font-size 12px
+    margin-top 20px
+    border 1px solid #505050
+    cursor pointer
+    &:hover
+      background-color rgba(192, 192, 192, 0.3)
 
-.sed
-  border 1px solid #505050
-  margin 20px 0 20px 0
-  &:hover
-    background-color rgba(0, 0, 255, 0.1)
-  
+  .plot
+    width 300px
+    height 120px
+
+#app > div
+  display none
+
+#app > div.active
+  display block
