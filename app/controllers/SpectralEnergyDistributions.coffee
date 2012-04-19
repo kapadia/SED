@@ -17,5 +17,6 @@ class SpectralEnergyDistributions extends Spine.Controller
       points:
         show: true
     $.plot($("##{@item.cid}"), [@item.data], options)
+    console.log @item.data
 
 module.exports = SpectralEnergyDistributions

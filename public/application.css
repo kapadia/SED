@@ -14,7 +14,7 @@ body {
   margin: 0 auto;
   padding-left: 200px;
 }
-#header-title h1 {
+#header #header-title h1 {
   color: #c34e00;
   font-size: 34px;
   font-weight: lighter;
@@ -23,10 +23,10 @@ body {
   margin: 0px;
   float: left;
 }
-#header-title h1 .alpha {
+#header #header-title h1 .alpha {
   font-size: 10px;
 }
-#header-tutorial h4 {
+#header #header-tutorial h4 {
   color: #505050;
   font-size: 14px;
   font-weight: lighter;
@@ -37,13 +37,13 @@ body {
   float: right;
   cursor: pointer;
 }
-#header-tutorial h4:hover {
+#header #header-tutorial h4:hover {
   color: #c34e00;
 }
-#tool-title {
+#header #tool-title {
   clear: both;
 }
-#tool-title h1 {
+#header #tool-title h1 {
   font-size: 25px;
   font-family: TitilliumText22LMedium, sans-serif;
   font-weight: normal;
@@ -82,16 +82,10 @@ body {
 #main form {
   margin-top: 20px;
 }
-#results {
-  width: 100%;
-  margin: 0 auto;
-}
-#results .row {
-  float: left;
-  width: 960px;
-}
 #results .sed {
   width: 300px;
+  float: left;
+  margin-right: 10px;
   text-align: left;
   font-size: 12px;
   margin-top: 20px;
@@ -101,7 +95,11 @@ body {
 #results .sed:hover {
   background-color: rgba(192,192,192,0.30);
 }
-#results .plot {
+#results .sed table td.label {
+  text-align: right;
+  font-weight: bold;
+}
+#results .sed .plot {
   width: 300px;
   height: 120px;
 }

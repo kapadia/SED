@@ -32,7 +32,6 @@ class Results extends Spine.Controller
         callback: 'givemeseds',
         success: (data) =>
           @initializeSedModel(sed) for sed in data
-          
         error: (e) ->
           console.log 'error', e
       })

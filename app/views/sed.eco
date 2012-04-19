@@ -1,7 +1,15 @@
 <div class='sed'>
   <h3><%= @objid %></h3>
-  <h4><%= @ra %></h4>
-  <h4><%= @dec %></h4>
+  <table>
+  <tr>
+    <td class='label'>Right Ascention</td>
+    <td><%= @ra %></td>
+  </tr>
+  <tr>
+    <td class='label'>Declination</td>
+    <td><%= @dec %></td>
+  </tr>
+  </table>
   <h4><%= @bibcode %></h4>
   <div id='<%= @cid %>' class='plot'></div>
 </div>

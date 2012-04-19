@@ -22,43 +22,42 @@ body
   margin 0 auto
   padding-left 200px
 
-#header-title
-  h1
-    color orange
-    font-size 34px
-    font-weight lighter
-    line-height 50px
-    text-transform lowercase
-    margin 0px
+  #header-title
+    h1
+      color orange
+      font-size 34px
+      font-weight lighter
+      line-height 50px
+      text-transform lowercase
+      margin 0px
     
-    float left
-    .alpha
-      font-size 10px
+      float left
+      .alpha
+        font-size 10px
 
-#header-tutorial
-  h4
-    color gray2
-    font-size 14px
-    font-weight lighter
-    line-height 50px
-    text-transform lowercase
-    margin 0px
-    margin-top 8px
-    float right
-    cursor pointer
-    &:hover
-      color: orange
+  #header-tutorial
+    h4
+      color gray2
+      font-size 14px
+      font-weight lighter
+      line-height 50px
+      text-transform lowercase
+      margin 0px
+      margin-top 8px
+      float right
+      cursor pointer
+      &:hover
+        color: orange
 
-#tool-title
-  clear both
+  #tool-title
+    clear both
 
-  h1
-    font-size 25px
-    font-family TitilliumText22LMedium, sans-serif
-    font-weight normal
-    text-align left
-    display block
-
+    h1
+      font-size 25px
+      font-family TitilliumText22LMedium, sans-serif
+      font-weight normal
+      text-align left
+      display block
 
 .active
   margin 0 auto
@@ -90,15 +89,11 @@ body
     margin-top 20px
 
 #results
-  width 100%
-  margin 0 auto
-
-  .row
-    float left
-    width 960px
 
   .sed
     width 300px
+    float left
+    margin-right 10px
     text-align left
     font-size 12px
     margin-top 20px
@@ -107,9 +102,14 @@ body
     &:hover
       background-color rgba(192, 192, 192, 0.3)
 
-  .plot
-    width 300px
-    height 120px
+    table
+      td.label
+        text-align right
+        font-weight bold
+
+    .plot
+      width 300px
+      height 120px
 
 #app > div
   display none
