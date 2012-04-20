@@ -1,1 +1,3 @@
-<div id="results"></div>
+<div id="results">
+  <div id="filters"></div>
+</div>

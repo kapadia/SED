@@ -1,0 +1,6 @@
+<select id="types-filter" data-value='all'>
+  <option value="all">All Objects</option>
+  <% for type in @types: %>
+    <option value="<%= type %>"><%= type %></option>
+  <% end %>
+</select>

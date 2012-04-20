@@ -1,0 +1,18 @@
+<div class='sed' data-cid='<%= @cid %>'>
+  <h3 class='object-name'><%= @objid %></h3>
+  <table>
+  <tr>
+    <td class='label'>RA</td>
+    <td><%= @decimalToSexagesimal()[0] %></td>
+  </tr>
+  <tr>
+    <td class='label'>Dec</td>
+    <td><%= @decimalToSexagesimal()[1] %></td>
+  </tr>
+  </table>
+  <h4><%= @bibcode %></h4>
+  <% if @bibcode is not undefined: %>
+    <h4><%= @bibcode %></h4>
+  <% end %>
+  <div id='<%= @cid %>' class='plot'></div>
+</div>
