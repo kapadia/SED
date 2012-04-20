@@ -50,10 +50,6 @@ body {
   text-align: left;
   display: block;
 }
-.active {
-  margin: 0 auto;
-  width: 940px;
-}
 #main input[type="text"] {
   height: 45px;
   width: 240px;
@@ -82,14 +78,16 @@ body {
 #main form {
   margin-top: 20px;
 }
+#results {
+  margin: 0;
+}
 #results .sed {
-  width: 300px;
+  width: 290px;
   float: left;
-  margin-right: 10px;
+  padding: 10px 0px 12px 20px;
   text-align: left;
   font-size: 12px;
-  margin-top: 20px;
-  border: 1px solid #505050;
+  margin-top: 30px;
   cursor: pointer;
 }
 #results .sed:hover {
@@ -98,14 +96,24 @@ body {
 #results .sed table td.label {
   text-align: right;
   font-weight: bold;
+  padding-right: 10px;
 }
 #results .sed .plot {
-  width: 300px;
+  width: 230px;
   height: 120px;
+}
+#examine .plot {
+  width: 600px;
+  height: 300px;
+}
+#examine .axisLabels {
+  font-size: 11px;
 }
 #app > div {
   display: none;
 }
 #app > div.active {
   display: block;
+  margin: 0 auto;
+  width: 940px;
 }

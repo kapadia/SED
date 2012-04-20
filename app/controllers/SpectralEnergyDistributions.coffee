@@ -69,7 +69,7 @@ class SpectralEnergyDistributions extends Spine.Controller
                     padding: '2px',
                     'background-color': '#FEE',
                     opacity: 0.80
-                }).appendTo("#sed-plot").show()
+                }).appendTo("#examine").show()
       else
         $("#cursor").remove()
     )
