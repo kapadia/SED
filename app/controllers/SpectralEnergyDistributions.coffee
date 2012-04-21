@@ -7,8 +7,13 @@ class SpectralEnergyDistributions extends Spine.Controller
     @item.generateData()
 
   render: (small = true) =>
-    viewSize = if small then 'small' else 'large'
-    @append require("views/sed-#{viewSize}")(@item)
+    if small
+      viewSize = 'small'
+      element = $("#seds")
+    else
+      viewSize = 'large'
+      element = @el
+    element.append require("views/sed-#{viewSize}")(@item)
     @plot(small)
     @
 

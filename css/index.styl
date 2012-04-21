@@ -5,122 +5,138 @@ gray = #EBEBEB
 gray2 = #505050
 gray3 = #C0C0C0
 white = #FFFFFF
+width = 940px
 
 body
   width 100%
   background gray
   color orange
-  font-family Verdana, Arial, sans-serif
+  font-family TitilliumText22LMedium, sans-serif
   font-weight lighter
   margin 0px 0px
   padding 0px
   text-align center
 
 #header
+  width 100%
   border-top 3px solid orange
   border-bottom 2px solid gray3
-  margin 0 auto
-  padding-left 200px
+  overflow auto
+  padding 20px 0 20px
 
-  #header-title
-    h1
+  .container
+    width width
+    margin 0 auto
+
+    .title
+      float left
       color orange
       font-size 34px
       font-weight lighter
       line-height 50px
       text-transform lowercase
-      margin 0px
-    
-      float left
-      .alpha
+
+      .bold
+        font-weight bold
+
+      .tiny
         font-size 10px
 
-  #header-tutorial
-    h4
+    .tutorial
+      float right
       color gray2
       font-size 14px
-      font-weight lighter
+      font-weight normal
       line-height 50px
       text-transform lowercase
       margin 0px
       margin-top 8px
-      float right
       cursor pointer
       &:hover
         color: orange
 
-  #tool-title
-    clear both
-
-    h1
-      font-size 25px
-      font-family TitilliumText22LMedium, sans-serif
-      font-weight normal
-      text-align left
-      display block
-
-#main
-  input[type="text"]
-    height 45px
-    width 240px
-    background-color white
-    border 1px solid gray3
-    box-shadow 0px 1px 0px white
-
-  input[type="submit"]
-    -webkit-gradient(linear, 0% 0%, 0% 100%, from(#DA5700), to(#C34E00))
-    background-color #DA5700
-    font-family TitilliumText22LBold
-    font-size 20px
-    font-family sans-serif
-    color white
-    height 45px
-    border 1px solid #993D00
-    box-shadow 0px 1px 0px white
-    cursor pointer
-    &:hover
-      background-color orange
-  
-  form
-    margin-top 20px
-
-#results
-  margin 0
-
-  .sed
-    width 290px
-    float left
-    padding 10px 0px 12px 20px
-    text-align left
-    font-size 12px
-    margin-top 30px
-    cursor pointer
-    &:hover
-      background-color rgba(192, 192, 192, 0.3)
-
-    table
-      td.label
-        text-align right
-        font-weight bold
-        padding-right 10px
-
-    .plot
-      width 230px
-      height 120px
-
-#examine
-  .plot
-    width 600px
-    height 300px
-
-  .axisLabels
-    font-size 11px
-
-#app > div
-  display none
-
-#app > div.active
-  display block
+#tool-title
+  width width
   margin 0 auto
-  width 940px
+  clear both
+  padding 40px 0 4px
   
+
+  h2
+    font-size 25px
+    font-weight normal
+    text-align left
+    display block
+
+#app
+
+  > div
+    display none
+  > div.active
+    width width
+    margin 0 auto
+    display block
+
+  #main
+    #coordinate-form
+      overflow auto
+      padding-bottom 24px
+      border-bottom 2px solid gray3
+
+      input[type="text"]
+        float left
+        height 45px
+        width 260px
+        margin-right 10px
+        color gray2
+        font-size 18px
+        background-color white
+        border 1px solid gray3
+        box-shadow 0px 1px 0px white
+
+      input[type="submit"]
+        float right
+        -webkit-gradient(linear, 0% 0%, 0% 100%, from(#DA5700), to(#C34E00))
+        background-color #DA5700
+        font-size 20px
+        color white
+        height 45px
+        border 1px solid #993D00
+        box-shadow 0px 1px 0px white
+        cursor pointer
+        &:hover
+          background-color orange
+
+      form
+        margin-top 20px
+
+  #results
+    #filters
+      .types
+        float left
+
+    #seds
+      clear both
+
+      .sed
+        width 312px
+        float left
+        padding 10px 0px 12px 0px
+        text-align left
+        font-size 12px
+        margin-top 30px
+        cursor pointer
+        &:hover
+          background-color rgba(192, 192, 192, 0.3)
+
+        .plot
+          width 230px
+          height 120px
+
+  #examine
+    .plot
+      width 600px
+      height 300px
+
+    .axisLabels
+      font-size 11px

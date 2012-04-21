@@ -18,6 +18,9 @@ class Examine extends Spine.Controller
     @examine()
     @
 
+  requestFITS: ->
+    url = "http"
+
   examine: ->
     @plotView = new SEDs {item: @item, el: $("#examine")}
     @plotView.render(false)
