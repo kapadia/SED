@@ -2,68 +2,93 @@ body {
   width: 100%;
   background: #ebebeb;
   color: #c34e00;
-  font-family: Verdana, Arial, sans-serif;
+  font-family: TitilliumText22LMedium, sans-serif;
   font-weight: lighter;
   margin: 0px 0px;
   padding: 0px;
   text-align: center;
 }
 #header {
+  width: 100%;
   border-top: 3px solid #c34e00;
   border-bottom: 2px solid #c0c0c0;
-  margin: 0 auto;
-  padding-left: 200px;
+  overflow: auto;
+  padding: 20px 0 20px;
 }
-#header #header-title h1 {
+#header .container {
+  width: 940px;
+  margin: 0 auto;
+}
+#header .container .title {
+  float: left;
   color: #c34e00;
   font-size: 34px;
   font-weight: lighter;
   line-height: 50px;
   text-transform: lowercase;
-  margin: 0px;
-  float: left;
 }
-#header #header-title h1 .alpha {
+#header .container .title .bold {
+  font-weight: bold;
+}
+#header .container .title .tiny {
   font-size: 10px;
 }
-#header #header-tutorial h4 {
+#header .container .tutorial {
+  float: right;
   color: #505050;
   font-size: 14px;
-  font-weight: lighter;
+  font-weight: normal;
   line-height: 50px;
   text-transform: lowercase;
   margin: 0px;
   margin-top: 8px;
-  float: right;
   cursor: pointer;
 }
-#header #header-tutorial h4:hover {
+#header .container .tutorial:hover {
   color: #c34e00;
 }
-#header #tool-title {
+#tool-title {
+  width: 940px;
+  margin: 0 auto;
   clear: both;
+  padding: 40px 0 4px;
 }
-#header #tool-title h1 {
+#tool-title h2 {
   font-size: 25px;
-  font-family: TitilliumText22LMedium, sans-serif;
   font-weight: normal;
   text-align: left;
   display: block;
 }
-#main input[type="text"] {
+#app > div {
+  display: none;
+}
+#app > div.active {
+  width: 940px;
+  margin: 0 auto;
+  display: block;
+}
+#app #main #coordinate-form {
+  overflow: auto;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #c0c0c0;
+}
+#app #main #coordinate-form input[type="text"] {
+  float: left;
   height: 45px;
-  width: 240px;
+  width: 260px;
+  margin-right: 10px;
+  color: #505050;
+  font-size: 18px;
   background-color: #fff;
   border: 1px solid #c0c0c0;
   -moz-box-shadow: 0px 1px 0px #fff;
   -webkit-box-shadow: 0px 1px 0px #fff;
   box-shadow: 0px 1px 0px #fff;
 }
-#main input[type="submit"] {
+#app #main #coordinate-form input[type="submit"] {
+  float: right;
   background-color: #da5700;
-  font-family: TitilliumText22LBold;
   font-size: 20px;
-  font-family: sans-serif;
   color: #fff;
   height: 45px;
   border: 1px solid #993d00;
@@ -72,48 +97,42 @@ body {
   box-shadow: 0px 1px 0px #fff;
   cursor: pointer;
 }
-#main input[type="submit"]:hover {
+#app #main #coordinate-form input[type="submit"]:hover {
   background-color: #c34e00;
 }
-#main form {
+#app #main #coordinate-form form {
   margin-top: 20px;
 }
-#results {
-  margin: 0;
-}
-#results .sed {
-  width: 290px;
+#app #results #filters .types {
   float: left;
-  padding: 10px 0px 12px 20px;
+}
+#app #results #seds {
+  clear: both;
+}
+#app #results #seds .sed {
+  width: 312px;
+  float: left;
+  padding: 10px 0px 12px 0px;
   text-align: left;
   font-size: 12px;
   margin-top: 30px;
   cursor: pointer;
+  color: #505050;
 }
-#results .sed:hover {
-  background-color: rgba(192,192,192,0.30);
+#app #results #seds .sed:hover {
+  color: #c34e00;
 }
-#results .sed table td.label {
-  text-align: right;
-  font-weight: bold;
-  padding-right: 10px;
-}
-#results .sed .plot {
+#app #results #seds .sed .plot {
   width: 230px;
   height: 120px;
 }
-#examine .plot {
+#app #results #seds .sed .plot > .flot-base {
+  color: #c34e00;
+}
+#app #examine .plot {
   width: 600px;
   height: 300px;
 }
-#examine .axisLabels {
+#app #examine .axisLabels {
   font-size: 11px;
-}
-#app > div {
-  display: none;
-}
-#app > div.active {
-  display: block;
-  margin: 0 auto;
-  width: 940px;
 }

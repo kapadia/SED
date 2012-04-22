@@ -4,6 +4,7 @@ class Main extends Spine.Controller
     '#ra-input'     : 'ra'
     '#dec-input'    : 'dec'
     '#radius-input' : 'radius'
+    '#results'      : 'results'
 
   events:
     'click #submit' : 'submit'
@@ -22,5 +23,6 @@ class Main extends Spine.Controller
   submit: (e) ->
     e.preventDefault()
     @navigate '/results', @ra.val(), @dec.val(), @radius.val()
+    
 
 module.exports = Main

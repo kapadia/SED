@@ -1,7 +1,9 @@
-Spine = require('spine')
-SED   = require('models/SpectralEnergyDistribution')
+SED           ?= require('models/SpectralEnergyDistribution')
+PlotSettings  = require('controllers/PlotSettings')
 
 class SpectralEnergyDistributions extends Spine.Controller
+  @extend PlotSettings
+
   constructor: ->
     super
     @item.generateData()
@@ -20,44 +22,16 @@ class SpectralEnergyDistributions extends Spine.Controller
   plot: (small) =>
     if small
       container = $("##{@item.cid}")
-      data = [ {data: @item.data, color: "#505050"} ]
-      options = 
-        points:
-          show: true
+      container.bind("mouseenter", @redraw)
+      container.bind("mouseleave", @redraw)
+      data = SpectralEnergyDistributions.dataSmallOptions
+      data[0]['data'] = @item.data
+      options = SpectralEnergyDistributions.plotSmallOptions
     else
       container = $("#examine .plot")
-      data = [
-        {
-          data:       @item.data,
-          hoverable:  true,
-          color:      "#505050",
-          points:
-            show: true
-          xaxis: 1
-        },
-        {
-          data: @item.data,
-          xaxis: 2
-        }
-      ]
-      markings = []
-      ticks = []
-      for label, wavelength of SED.centralWavelengths
-        markings.push({ color: "rgba(255, 0, 0, 0.1)", lineWidth: 0.5, xaxis: { from: wavelength - 0.25, to: wavelength + 0.25 } })
-        ticks.push([wavelength, label])
-
-      options = 
-        points:
-          show: true
-        xaxes: [ {axisLabel: "Wavelength (nm)", position: 'bottom'}, {position: 'top', ticks : ticks} ]
-        yaxes: [ {axisLabel: "Flux Density (Jy)"}]
-        grid:
-          markings: markings
-          hoverable: true,
-          clickable: true
-          labelMargin: 14
-          axisMargin: 10
-
+      data = SpectralEnergyDistributions.dataLargeOptions
+      data[0]['data'] = @item.data
+      options = SpectralEnergyDistributions.plotLargeOptions
     $.plot(container, data, options)
 
     container.bind("plothover", (evt, position, item) ->
@@ -65,18 +39,27 @@ class SpectralEnergyDistributions extends Spine.Controller
         $("#cursor").remove()
         x = item.datapoint[0].toFixed(2)
         y = item.datapoint[1].toFixed(2)
-        $("<div id='cursor'>#{x} Jy, #{y} nm</div>").css({
-                    position: 'fixed',
-                    display: 'none',
-                    left: item.pageX + 16,
-                    top: item.pageY + 8,
-                    border: '1px solid #FDD',
-                    padding: '2px',
-                    'background-color': '#FEE',
-                    opacity: 0.80
-                }).appendTo("#examine").show()
+        SpectralEnergyDistributions.cursorInfoStyle['left'] = item.pageX + 16
+        SpectralEnergyDistributions.cursorInfoStyle['top'] =  item.pageY + 8
+        $("<div id='cursor'>#{x} Jy, #{y} nm</div>").css(SpectralEnergyDistributions.cursorInfoStyle).appendTo("#examine").show()
       else
         $("#cursor").remove()
     )
+
+  redraw: (e) ->
+    cid = e.currentTarget.id
+    sed = SED.find(cid)
+
+    options = SpectralEnergyDistributions.plotSmallOptions
+    data =
+      data: sed.data
+      color: "#505050"
+
+    if e.type is "mouseenter"
+      options['xaxis']['color'] = '#C34E00'
+      options['yaxis']['color'] = '#C34E00'
+      data['color'] = '#C34E00'
+
+    $.plot(@, data, options)
 
 module.exports = SpectralEnergyDistributions

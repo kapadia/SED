@@ -1,6 +1,3 @@
-Spine = require('spine')
-SED   = require('models/SpectralEnergyDistribution')
-SEDs  = require('controllers/SpectralEnergyDistributions')
 
 class Examine extends Spine.Controller
 

@@ -1,6 +1,5 @@
 require('lib/setup')
 
-Spine   = require('spine')
 Main    = require('controllers/Main')
 Results = require('controllers/Results')
 Examine = require('controllers/Examine')

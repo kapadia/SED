@@ -1,4 +1,3 @@
-Spine = require('spine')
 
 class Skies extends Spine.Controller
   constructor: ->
