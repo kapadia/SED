@@ -1,1 +1,5 @@
-<div class='plot'></div>
+<div class='plot'>
+  <div class='yaxis'>Flux Density (Jy)</div>
+  <div class='xaxis'>Wavelength (nm)</div>
+  <div class='flot'></div>
+</div>

@@ -33,14 +33,10 @@ PlotSettings =
     points:
       show: true
     xaxes: [
-      axisLabel: "Wavelength (nm)"
       position: 'bottom'
     ,
       position: 'top'
       ticks: @ticks
-    ]
-    yaxes: [
-      axisLabel: "Flux Density (Jy)"
     ]
     grid:
       markings: @markings
@@ -55,7 +51,7 @@ PlotSettings =
     points:
       show: true
     xaxis: 1
-    ,
+  ,
     xaxis: 2
   ]
 
