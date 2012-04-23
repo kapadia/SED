@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset=utf-8>
-  <title>Wicked Cool Spectral Energy Distribution</title>
-  <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
-  <script src="/application.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" charset="utf-8">
-    var jQuery  = require("jqueryify");
-    var exports = this;
-    jQuery(function(){
-      var App = require("index");
-      exports.app = new App({el: $("#app")});
-    });
-  </script>
-  <script src="flot/jquery.flot.js" type="text/javascript" charset="utf-8"></script>
-  <script src="fake-data.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body>
-  <div id='header'>
-    <div class='container'>
-      <div class='title'>Zoo<span class='bold'>Tools</span> <span class='tiny'>(alpha)</span></div>
-      <div class='tutorial'>Tutorial</div>
+  <head>
+    <meta charset=utf-8>
+    <title>Wicked Cool Spectral Energy Distribution</title>
+    <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
+    <script src="/application.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      var jQuery  = require("jqueryify");
+      var exports = this;
+      jQuery(function(){
+        var App = require("index");
+        exports.app = new App({el: $("#app")});
+      });
+    </script>
+    <script src="flot/jquery.flot.js" type="text/javascript" charset="utf-8"></script>
+    <script src="chromoscope/chromoscope.js" type="text/javascript" charset="utf-8"></script>
+    <script src="fake-data.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id='header'>
+      <div class='container'>
+        <div class='title'>Zoo<span class='bold'>Tools</span> <span class='tiny'>(alpha)</span></div>
+        <div class='tutorial'>Tutorial</div>
+      </div>
     </div>
-  </div>
-  <div id='tool-title'>
-    <h2>Spectral Energy Distribution</h2>
-  </div>
-  <div id="app"></div>
-</body>
+    <div id='tool-title'>
+      <h2>Spectral Energy Distribution</h2>
+    </div>
+    <div id="app"></div>
+  </body>
 </html>

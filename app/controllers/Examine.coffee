@@ -1,3 +1,5 @@
+Sky   = require('models/Sky')
+Skies = require('controllers/Skies')
 
 class Examine extends Spine.Controller
 
@@ -15,12 +17,17 @@ class Examine extends Spine.Controller
     @examine()
     @
 
-  requestFITS: ->
-    url = "http"
-
   examine: ->
-    @plotView = new SEDs {item: @item, el: $("#examine")}
+    @plot()
+    @sky()
+  
+  plot: ->
+    @plotView = new SEDs {item: @item, el: $("#examine .sed")}
     @plotView.render(false)
-    # @sky()
+
+  sky: ->
+    model = new Sky {'objid': @item.objid, 'ra': @item.ra, 'dec': @item.dec}
+    @skyView = new Skies {item: model, el: $("#examine .sky")}
+    @skyView.render()
 
 module.exports = Examine

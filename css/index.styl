@@ -133,15 +133,12 @@ body
         .object-info
           width 230px
           .object-name
-            float left
             font-size 14px
           .object-type
-            float right
             font-size 12px
             font-weight lighter
 
         .plot
-          clear both
           width 230px
           height 120px
 
@@ -149,26 +146,36 @@ body
             color orange
 
   #examine
-    .plot
-      position relative
-
-      .flot
+    .sed
+      .object-info
         width 600px
-        height 300px
+        .object-name
+          float left
+        .object-type
+          float right
+          font-weight lighter
 
-      .yaxis
-        font-size 11px
-        position absolute
-        left -100px
-        top 190px
-        padding-left 80px
-        transform rotate(-90deg)
+      .plot
+        clear both
+        position relative
 
-      .xaxis
-        font-size 11px
-        position absolute
-        left 274px
-        top 306px
+        .flot
+          width 600px
+          height 300px
 
-      .axisLabels
-        font-size 11px
+        .yaxis
+          font-size 11px
+          position absolute
+          left -100px
+          top 180px
+          padding-left 80px
+          transform rotate(-90deg)
+
+        .xaxis
+          font-size 11px
+          position absolute
+          left 274px
+          top 306px
+
+        .axisLabels
+          font-size 11px
