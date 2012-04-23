@@ -51,15 +51,14 @@ class SpectralEnergyDistributions extends Spine.Controller
     sed = SED.find(cid)
 
     options = SpectralEnergyDistributions.plotSmallOptions
-    data =
-      data: sed.data
-      color: "#505050"
+    data = SpectralEnergyDistributions.dataSmallOptions
 
-    if e.type is "mouseenter"
-      options['xaxis']['color'] = '#C34E00'
-      options['yaxis']['color'] = '#C34E00'
-      data['color'] = '#C34E00'
+    color = if e.type is "mouseenter" then '#C34E00' else '#505050'
+    options['xaxis']['color'] = color
+    options['yaxis']['color'] = color
+    data['color'] = color
+    data['data'] = sed.data
 
-    $.plot(@, data, options)
+    $.plot(@, [data], options)
 
 module.exports = SpectralEnergyDistributions
