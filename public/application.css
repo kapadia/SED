@@ -103,6 +103,9 @@ body {
 #app #main #coordinate-form form {
   margin-top: 20px;
 }
+#app #main #message {
+  display: none;
+}
 #app #results #filters .types {
   float: left;
 }
@@ -122,6 +125,17 @@ body {
 #app #results #seds .sed:hover {
   color: #c34e00;
 }
+#app #results #seds .sed .object-info {
+  width: 230px;
+}
+#app #results #seds .sed .object-info .object-name {
+  font-size: 14px;
+  line-height: 0px;
+}
+#app #results #seds .sed .object-info .object-type {
+  font-size: 12px;
+  font-weight: lighter;
+}
 #app #results #seds .sed .plot {
   width: 230px;
   height: 120px;
@@ -129,10 +143,42 @@ body {
 #app #results #seds .sed .plot > .flot-base {
   color: #c34e00;
 }
-#app #examine .plot {
+#app #examine .sed .object-info {
+  width: 600px;
+}
+#app #examine .sed .object-info .object-name {
+  float: left;
+}
+#app #examine .sed .object-info .object-type {
+  float: right;
+  font-weight: lighter;
+}
+#app #examine .sed .plot {
+  clear: both;
+  position: relative;
+}
+#app #examine .sed .plot .flot {
   width: 600px;
   height: 300px;
 }
-#app #examine .axisLabels {
+#app #examine .sed .plot .yaxis {
+  font-size: 11px;
+  position: absolute;
+  left: -100px;
+  top: 180px;
+  padding-left: 80px;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+#app #examine .sed .plot .xaxis {
+  font-size: 11px;
+  position: absolute;
+  left: 274px;
+  top: 306px;
+}
+#app #examine .sed .plot .axisLabels {
   font-size: 11px;
 }

@@ -22,7 +22,9 @@ class Main extends Spine.Controller
 
   submit: (e) ->
     e.preventDefault()
-    @navigate '/results', @ra.val(), @dec.val(), @radius.val()
-    
+    if isNaN(parseFloat(@ra.val())) is true or isNaN(parseFloat(@dec.val())) is true or isNaN(parseFloat(@radius.val())) is true
+      $("#message").html("Something is wrong.  Fix your query man!").show()
+    else
+      @navigate '/results', @ra.val(), @dec.val(), @radius.val()
 
 module.exports = Main
