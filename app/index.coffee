@@ -15,7 +15,7 @@ class App extends Spine.Stack
   routes:
     '/'                         : 'main'
     '/results/:ra/:dec/:radius' : 'results'
-    '/results/:id'              : 'examine'
+    '/results/:objid'           : 'examine'
 
   default: 'main'
 

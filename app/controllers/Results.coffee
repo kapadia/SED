@@ -98,7 +98,8 @@ class Results extends Spine.Controller
 
   examine: (e) =>
     cid = $(e.currentTarget).children('.plot').first().attr("id")
-    @navigate('/results', cid)
+    item = SED.find(cid)
+    @navigate('/results', encodeURIComponent(item.objid), {id: cid})
 
   # TODO: Build good UI to show cross reference of object names
   showObjectNames: (e) ->

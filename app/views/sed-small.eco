@@ -1,5 +1,5 @@
 <% coords = @decimalToSexagesimal() %>
-<div class='sed' data-cid='<%= @cid %>'>
+<div class='sed' data-cid='<%= @cid %>' data-objid='<%= @cid %>'>
   <div class='object-info'>
     <h3 class='object-name'><%= @objid %></h3>
     <h3 class='object-type'><%= @type %></h3>
