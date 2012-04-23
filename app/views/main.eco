@@ -1,9 +1,9 @@
 <div id="main">
   <div id="coordinate-form">
     <form name="query" action="">
-      <input type="text" name="ra" id="ra-input" size="30" value="Type Right Ascension Here ..." />
-      <input type="text" name="dec" id="dec-input" size="30" value="Type Declination Here ..." />
-      <input type="text" name="radius" id="radius-input" size="30" value="Type Radius Here ..." />
+      <input type="text" name="ra" id="ra-input" size="30" value="right ascension" />
+      <input type="text" name="dec" id="dec-input" size="30" value="declination" />
+      <input type="text" name="radius" id="radius-input" size="30" value="radius" />
       <input type="submit" name="submit" class="button" id="submit" value="Do Magic!" />
     </form>
   </div>

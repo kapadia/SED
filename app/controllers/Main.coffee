@@ -15,10 +15,10 @@ class Main extends Spine.Controller
 
     @html require('views/main')()
 
-    # TEMP: default values
-    @ra.val(18.39509)
-    @dec.val(-13.25730)
-    @radius.val(50)
+    # # TEMP: default values
+    # @ra.val(18.39509)
+    # @dec.val(-13.25730)
+    # @radius.val(50)
 
   submit: (e) ->
     e.preventDefault()

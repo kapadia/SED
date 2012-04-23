@@ -6,7 +6,6 @@ class Examine extends Spine.Controller
   constructor: ->
     super
     @active (params) ->
-      console.log 'params', params
       @change(params.id)
 
   change: (id) ->
