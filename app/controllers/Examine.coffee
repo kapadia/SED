@@ -19,7 +19,7 @@ class Examine extends Spine.Controller
 
   examine: ->
     @plot()
-    @sky()
+    # @sky()
   
   plot: ->
     @plotView = new SEDs {item: @item, el: $("#examine .sed")}
