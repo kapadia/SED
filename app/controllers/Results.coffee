@@ -36,18 +36,18 @@ class Results extends Spine.Controller
       @addSedController(sed) for sed in SED.all()
       @initializeFilter()
     else
-      # @initializeSedModel(sed) for sed in data
-      # @initializeFilter()
-      $.ajax({
-        dataType: 'jsonp',
-        url: @generateURL(ra, dec, radius),
-        callback: 'givemeseds',
-        success: (data) =>
-          @initializeSedModel(sed) for sed in data
-          @initializeFilter()
-        error: (e) =>
-          console.log 'oh well ...'
-      })
+      @initializeSedModel(sed) for sed in data
+      @initializeFilter()
+      # $.ajax({
+      #   dataType: 'jsonp',
+      #   url: @generateURL(ra, dec, radius),
+      #   callback: 'givemeseds',
+      #   success: (data) =>
+      #     @initializeSedModel(sed) for sed in data
+      #     @initializeFilter()
+      #   error: (e) =>
+      #     console.log 'oh well ...'
+      # })
 
   generateURL: (ra, dec, radius = 30) ->
     return "http://www.milkywayproject.org/gator.json?radius=#{radius}&ra=#{ra}&dec=#{dec}"

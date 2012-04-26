@@ -13,7 +13,6 @@ class Skies extends Spine.Controller
 
   setupChromoscope: ->
     @chromoscope = $.chromoscope Skies.settings
-    console.log @chromoscope
     @chromoscope.addWavelength(Skies.gamma)
     @chromoscope.addWavelength(Skies.xray)
     @chromoscope.addWavelength(Skies.optical)
