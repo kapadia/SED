@@ -1,4 +1,4 @@
-ChromoscopeSettings  = require('controllers/ChromoscopeSettings')
+ChromoscopeSettings  = require('modules/ChromoscopeSettings')
 
 class Skies extends Spine.Controller
   @extend ChromoscopeSettings

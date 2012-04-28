@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "SpectralEnergyDistributions",
   "version": "0.0.1",
   "dependencies": { 
     "serveup": "~0.0.4",

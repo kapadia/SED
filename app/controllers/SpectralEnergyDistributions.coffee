@@ -1,5 +1,5 @@
 SED           ?= require('models/SpectralEnergyDistribution')
-PlotSettings  = require('controllers/PlotSettings')
+PlotSettings  = require('modules/PlotSettings')
 
 class SpectralEnergyDistributions extends Spine.Controller
   @extend PlotSettings

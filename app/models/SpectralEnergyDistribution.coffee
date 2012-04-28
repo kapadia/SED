@@ -1,10 +1,12 @@
 Spine = require('spine')
 
 class SpectralEnergyDistribution extends Spine.Model
-  @configure 'SpectralEnergyDistribution', 'objid', 'ra', 'dec', 'fluxDensities', 'bibCodes', 'names', 'type', 'data'
+  @configure 'SpectralEnergyDistribution', 'objid', 'ra', 'dec', 'fluxDensities', 'bibCodes', 'names', 'type', 'misc', 'data'
   @centralWavelengths = {
     'U': 365, 'B': 445, 'V': 551, 'R': 658, 'I': 806, 'Z': 900, 'Y': 1020, 'J': 1220, 'H': 1630, 'K': 2190, 'L': 3450, 'M': 4750,
-    '12um': 12000, '25um': 25000, '60um': 60000, '100um': 100000
+    '12um': 12000, '25um': 25000, '60um': 60000, '100um': 100000, 'u': 354.3, 'g': 477.0, 'r': 623.1, 'i': 762.5, 'z': 913.4,
+    '3.6um': 3600, '4.5um': 4500, '5.8um': 5800, '8.0um': 8000,
+    '2.3keV': 0.539, '0.4keV': 3.1, '0.92keV': 1.3, '1.56keV': 0.795, '3.8keV': 0.326
   }
 
   @getTypes: ->
@@ -21,8 +23,12 @@ class SpectralEnergyDistribution extends Spine.Model
 
     @updateAttribute("data", data)
 
-  @micron2nanometers: (length) -> return length * 1000
+  min: ->
+    console.log 'min'
 
+  max: ->
+    console.log 'max'
+  
   decimalToSexagesimal: ->
     ra = @ra / 15
     raHours     = parseInt(ra)

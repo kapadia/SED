@@ -7,13 +7,14 @@ class Results extends Spine.Controller
     '#filters.types' : 'typesFilter'
 
   events:
-    'click .sed'    : 'examine'
-    'change .types' : 'filterByType'
+    'click .sed'      : 'examine'
+    'change .types'   : 'filterByType'
+    # 'mouseenter .sed' : 'showObjectNames'
     # 'mouseenter .object-name'   : 'showObjectNames'
     # 'mouseout   #object-names'  : 'hideObjectNames'
 
-  # @archives = ['glimpse', 'iras', 'sdssdr7']
-  @archives = ['iras']
+  @archives = ['glimpse', 'iras', 'sdssdr7', 'chandra']
+  # @archives = ['iras']
 
   constructor: ->
     super
@@ -67,6 +68,7 @@ class Results extends Spine.Controller
     params['ra']        = sed['ra']
     params['names']     = sed['all_names']
     params['type']      = sed['type']
+    params['misc']      = sed['misc']
     delete sed['object_name']
     delete sed['ra']
     delete sed['dec']
@@ -74,6 +76,7 @@ class Results extends Spine.Controller
     delete sed['ra']
     delete sed['all_names']
     delete sed['type']
+    delete sed['misc']
     params['fluxDensities'] = sed
     model = new SED params
     model.save()
@@ -98,28 +101,32 @@ class Results extends Spine.Controller
   examine: (e) =>
     cid = $(e.currentTarget).children('.plot').first().attr("id")
     item = SED.find(cid)
+    console.log item
+    console.log item.min()
     @navigate('/results', encodeURIComponent(item.objid), {id: cid})
 
   # TODO: Build good UI to show cross reference of object names
   showObjectNames: (e) ->
-    cid = $(e.currentTarget).parent().attr("data-cid")
+    cid = $(e.currentTarget).attr("data-cid")
+    # cid = $(e.currentTarget).parent().attr("data-cid")
+    sed = SED.find(cid)
     names = SED.find(cid).names
     position = $(e.currentTarget).position()
-    if names.length > 1
-      $("#object-names").remove()
-      html = "<div id='object-names'>"
-      html += "<div class='object-name'>#{name}</div>" for name in names
-      html += "</div>"
-      $(html).css({
-        position: 'fixed',
-        display: 'none',
-        left: position[0] - 240,
-        top: position[1],
-        border: '1px solid #FDD',
-        padding: '2px',
-        'background-color': '#FEE',
-        opacity: 0.80
-      }).appendTo("#results").show()
+    # if names.length > 1
+    #   $("#object-names").remove()
+    #   html = "<div id='object-names'>"
+    #   html += "<div class='object-name'>#{name}</div>" for name in names
+    #   html += "</div>"
+    #   $(html).css({
+    #     position: 'fixed',
+    #     display: 'none',
+    #     left: position[0] - 240,
+    #     top: position[1],
+    #     border: '1px solid #FDD',
+    #     padding: '2px',
+    #     'background-color': '#FEE',
+    #     opacity: 0.80
+    #   }).appendTo("#results").show()
 
   hideObjectNames: (e) -> $("#object-names").remove()
 
