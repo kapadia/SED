@@ -1,4 +1,8 @@
 <div id="results">
-  <div id="filters"></div>
+  <div id="filters">
+    <select class="types" data-value='all'>
+      <option value="all">All Objects</option>
+    </select>
+  </div>
   <div id="seds"></div>
 </div>

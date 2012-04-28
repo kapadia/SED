@@ -12,6 +12,9 @@ class Results extends Spine.Controller
     # 'mouseenter .object-name'   : 'showObjectNames'
     # 'mouseout   #object-names'  : 'hideObjectNames'
 
+  # @archives = ['glimpse', 'iras', 'sdssdr7']
+  @archives = ['iras']
+
   constructor: ->
     super
     SED.bind "create", @addSedController
@@ -24,8 +27,7 @@ class Results extends Spine.Controller
       @change()
       @getData params.ra, params.dec, params.radius
 
-  change: () ->
-    @render()
+  change: () -> @render()
 
   render: ->
     @html require('views/results')()
@@ -34,26 +36,28 @@ class Results extends Spine.Controller
   getData: (ra, dec, radius) ->
     if SED.count() > 0
       @addSedController(sed) for sed in SED.all()
-      @initializeFilter()
     else
-      @initializeSedModel(sed) for sed in data
-      @initializeFilter()
-      # $.ajax({
-      #   dataType: 'jsonp',
-      #   url: @generateURL(ra, dec, radius),
-      #   callback: 'givemeseds',
-      #   success: (data) =>
-      #     @initializeSedModel(sed) for sed in data
-      #     @initializeFilter()
-      #   error: (e) =>
-      #     console.log 'oh well ...'
-      # })
+      for archive in Results.archives
+        console.log @generateURL(archive, ra, dec, radius)
+        $.ajax({
+          dataType: 'jsonp',
+          url: @generateURL(archive, ra, dec, radius)
+          callback: 'givemeseds',
+          success: (data) =>
+            return if data[0]['message']
+            @initializeSedModel(sed) for sed in data
+          error: (e) =>
+            console.log 'oh well ...', e
+        })
 
-  generateURL: (ra, dec, radius = 30) ->
-    return "http://www.milkywayproject.org/gator.json?radius=#{radius}&ra=#{ra}&dec=#{dec}"
+  generateURL: (survey, ra, dec, radius = 30) ->
+    return "http://0.0.0.0:3000/getseds.json?survey=#{survey}&ra=#{ra}&dec=#{dec}&radius=#{radius}"
+    # return "http://www.milkywayproject.org/gator.json?radius=#{radius}&ra=#{ra}&dec=#{dec}"
 
   initializeSedModel: (sed) ->
-    @objectTypes.push sed['type'] unless sed['type'] in @objectTypes
+    unless sed['type'] in @objectTypes
+      @objectTypes.push sed['type']
+      $("#filters .types").append("<option value='#{sed.type}'>#{sed.type}</option>")
 
     params = {}
     params['objid']     = sed['object_name']
@@ -78,13 +82,8 @@ class Results extends Spine.Controller
     view = new SEDs {item: model, el: $("#results")}
     view.render()
 
-  initializeFilter: ->
-    $("#filters").append( require('views/types')({types: @objectTypes}) )
-    if @filterType
-      $("#types-filter option[value='#{@filterType}']").attr('selected', 'selected')
-      $("#types-filter").trigger('change')
-
   filterByType: (e) ->
+    console.log SED.all()
     @filterType = e.target.value
     for sed in SED.all()
       if @filterType is "all"

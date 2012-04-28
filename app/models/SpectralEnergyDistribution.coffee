@@ -2,7 +2,17 @@ Spine = require('spine')
 
 class SpectralEnergyDistribution extends Spine.Model
   @configure 'SpectralEnergyDistribution', 'objid', 'ra', 'dec', 'fluxDensities', 'bibCodes', 'names', 'type', 'data'
-  @centralWavelengths = {'U': 365, 'B': 445, 'V': 551, 'R': 658, 'I': 806, 'Z': 900, 'Y': 1020, 'J': 1220, 'H': 1630, 'K': 2190, 'L': 3450, 'M': 4750}
+  @centralWavelengths = {
+    'U': 365, 'B': 445, 'V': 551, 'R': 658, 'I': 806, 'Z': 900, 'Y': 1020, 'J': 1220, 'H': 1630, 'K': 2190, 'L': 3450, 'M': 4750,
+    '12um': 12000, '25um': 25000, '60um': 60000, '100um': 100000
+  }
+
+  @getTypes: ->
+    seds = @all()
+    types = []
+    for sed in seds
+      types.push(sed.type) unless sed.type in types
+    return types
 
   generateData: =>
     data = []
@@ -10,6 +20,8 @@ class SpectralEnergyDistribution extends Spine.Model
       data.push [SpectralEnergyDistribution.centralWavelengths[key], value]
 
     @updateAttribute("data", data)
+
+  @micron2nanometers: (length) -> return length * 1000
 
   decimalToSexagesimal: ->
     ra = @ra / 15
