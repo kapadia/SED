@@ -13,20 +13,20 @@ class Examine extends Spine.Controller
     if id?
       @item = SED.find(id)
     else
-      data = [{"object_name":"V* IM Her","type":"EB*Algol","ra":255.54483749999997,"dec":32.198072222222216,"J":0.025183522208089882,"H":0.020702656469160346,"K":0.013880071059123695,"R":0.016515126201576396,"B":0.009759096200790721,"all_names":["V* IM Her"],"bibcodes":["2003yCat.2246....0C","2003AstL...29..468S"]}]
+      # data = [{"object_name":"V* IM Her","type":"EB*Algol","ra":255.54483749999997,"dec":32.198072222222216,"J":0.025183522208089882,"H":0.020702656469160346,"K":0.013880071059123695,"R":0.016515126201576396,"B":0.009759096200790721,"all_names":["V* IM Her"],"bibcodes":["2003yCat.2246....0C","2003AstL...29..468S"]}]
       @initializeSedModel(data[0])
-      # $.ajax({
-      #   dataType: 'jsonp',
-      #   url: @generateURL(ra, dec, radius),
-      #   callback: 'givemesed',
-      #   success: (data) =>
-      #     # throw 'blah'
-      #     @initializeSedModel(data[0])
-      #   error: (e) =>
-      #     @navigate '/'
-      #     $("#message").html("Sorry, the query cannot be completed.")
-      #     
-      # })
+      $.ajax({
+        dataType: 'jsonp',
+        url: @generateURL(ra, dec, radius),
+        callback: 'givemesed',
+        success: (data) =>
+          # throw 'blah'
+          @initializeSedModel(data[0])
+        error: (e) =>
+          @navigate '/'
+          $("#message").html("Sorry, the query cannot be completed.")
+          
+      })
     @render()
 
   render: =>

@@ -13,8 +13,8 @@ class Results extends Spine.Controller
     # 'mouseenter .object-name'   : 'showObjectNames'
     # 'mouseout   #object-names'  : 'hideObjectNames'
 
-  @archives = ['glimpse', 'iras', 'sdssdr7', 'chandra']
-  # @archives = ['iras']
+  # @archives = ['simbad', 'sdssdr7', 'glimpse', 'iras', 'chandra', 'twomass']
+  @archives = ['xmm']
 
   constructor: ->
     super
@@ -52,6 +52,7 @@ class Results extends Spine.Controller
         })
 
   generateURL: (survey, ra, dec, radius = 30) ->
+    # return "http://apps.galaxyzoo.org/getseds.json?survey=#{survey}&ra=#{ra}&dec=#{dec}&radius=#{radius}"
     return "http://0.0.0.0:3000/getseds.json?survey=#{survey}&ra=#{ra}&dec=#{dec}&radius=#{radius}"
     # return "http://www.milkywayproject.org/gator.json?radius=#{radius}&ra=#{ra}&dec=#{dec}"
 
@@ -101,8 +102,6 @@ class Results extends Spine.Controller
   examine: (e) =>
     cid = $(e.currentTarget).children('.plot').first().attr("id")
     item = SED.find(cid)
-    console.log item
-    console.log item.min()
     @navigate('/results', encodeURIComponent(item.objid), {id: cid})
 
   # TODO: Build good UI to show cross reference of object names
