@@ -2,8 +2,9 @@
 <div class='sed' data-cid='<%= @cid %>' data-objid='<%= @cid %>'>
   <div class='object-info'>
     <h3 class='object-name'><%= @objid %></h3>
-    <h3 class='object-type'><%= @type %></h3>
+    <h3 class='object-type'><%= @getObjectType(@type) %></h3>
   </div>
   <div id='<%= @cid %>' class='plot'></div>
   <p class='coordinates'><%= "ra: #{coords[0]} dec: #{coords[1]}" %></p>
+  <a href="#" style="display: none">Get from NED</a>
 </div>

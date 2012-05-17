@@ -2,7 +2,7 @@
   <div class='sed'>
     <div class='object-info'>
       <h3 class='object-name'><%= @objid %></h3>
-      <h3 class='object-type'><%= @type %></h3>
+      <h3 class='object-type'><%= @getObjectType() %></h3>
     </div>
   </div>
   <div class='sky'>

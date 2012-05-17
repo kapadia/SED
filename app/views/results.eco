@@ -4,5 +4,21 @@
       <option value="all">All Objects</option>
     </select>
   </div>
-  <div id="seds"></div>
+  <div id="simbad" class='archive-results'>
+    <h2>Results from <a href="http://simbad.u-strasbg.fr/">SIMBAD</a></h2>
+    <div class="status">
+      <img src="wait20trans.gif" />
+      <h3 id="simbad-status"></h3>
+    </div>
+  </div>
+  <div id="seds-simbad" class='seds'></div>
+
+  <div id="ned" class='archive-results'>
+    <h2>Results from <a href="http://ned.ipac.caltech.edu/">NED</a></h2>
+    <div class="status">
+      <img src="wait20trans.gif" />
+      <h3 id="ned-status"></h3>
+    </div>
+  </div>
+  <div id="seds-ned" class='seds'></div>
 </div>

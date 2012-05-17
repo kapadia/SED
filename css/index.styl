@@ -118,20 +118,64 @@ body
         margin-top 20px
 
   #results
+    #status
+      position fixed
+      top 1em
+      right 1em
+      
+      .archive
+        text-transform capitalize
+
     #filters
       .types
         float left
 
-    #seds
+    .archive-results
+      clear both
+      border-bottom solid gray2 1px
+      overflow hidden
+
+      h2
+        float left
+        padding-top 40px
+        text-align left
+        font-size 14px
+        color gray2
+
+        a:link
+          text-decoration none
+        a:visited
+          color gray2
+        a:hover
+          color orange
+        a:active
+          color orange
+
+      .status
+        float right
+        display inline-block
+        padding-top 40px
+
+        h3
+          display inline-block
+          text-align right
+          font-size 12px
+          font-weight lighter
+          color gray2
+
+        img
+          position relative
+          top 5px
+
+    .seds
       clear both
 
       .sed
         width 312px
         float left
-        padding 10px 0px 12px 0px
+        padding 6px 0px 12px 0px
         text-align left
         font-size 12px
-        margin-top 30px
         cursor pointer
         color gray2
         &:hover

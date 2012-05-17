@@ -11,7 +11,7 @@ class SpectralEnergyDistributions extends Spine.Controller
   render: (small = true) =>
     if small
       viewSize = 'small'
-      element = $("#seds")
+      element = $("#seds-#{@item.origin.toLowerCase()}")
     else
       viewSize = 'large'
       element = @el

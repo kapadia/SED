@@ -18,7 +18,7 @@ class Main extends Spine.Controller
     # TEMP: default values
     @ra.val(18.39509)
     @dec.val(-13.25730)
-    @radius.val(50)
+    @radius.val(10)
 
   submit: (e) ->
     e.preventDefault()
