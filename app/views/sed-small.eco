@@ -1,4 +1,4 @@
-<% coords = @decimalToSexagesimal() %>
+<% coords = @.constructor.decimalToSexagesimal(@ra, @dec) %>
 <div class='sed' data-cid='<%= @cid %>' data-objid='<%= @cid %>'>
   <div class='object-info'>
     <h3 class='object-name'><%= @objid %></h3>

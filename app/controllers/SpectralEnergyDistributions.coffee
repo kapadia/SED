@@ -15,6 +15,7 @@ class SpectralEnergyDistributions extends Spine.Controller
     else
       viewSize = 'large'
       element = @el
+    console.log @item
     element.append require("views/sed-#{viewSize}")(@item)
     @plot(small)
     @
